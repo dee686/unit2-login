@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="style.css">
+<body>
+    <h3><a href="signup.html">Sign Up</a></h3>
+    <div id="fbody">
+        <h3>Login</h3>
+        <form action="" id="loginbody">
+           
+            
+            
+            <input id="stumail" type="text" placeholder="Email">
+            <input id="stupassword" type="text" placeholder="Password">
+            <input id="formsubmit" type="submit" value="Login">
+        </form>
+    </div>
+</body>
+</html>
+<script>
+    var user=JSON.parse(localStorage.getItem("details"));
+    document.querySelector("#loginbody").addEventListener("submit",displaydata)
+
+    function displaydata(){
+        event.preventDefault()
+        var userdata={
+            useremail:document.querySelector("#stumail").value,
+            userpassword:document.querySelector("#stupassword").value,
+        }
+       user.forEach(function(element){
+        if(element.studentmail==userdata.useremail&&element.studentpass==userdata.userpassword){
+            alert("Login Sucessfull");
+            
+           }
+           else if(userdata.useremail==null)
+           {
+               alert("create a acount")
+           }
+           else{
+               alert("Please Check The Details")
+           }
+            
+        });
+        
+      
+    }
+        
+   
+   
+    
+    
+</script>

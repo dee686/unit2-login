@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>masai</h1>
+    <div id="fbody">
+        <form action="" id="signupbody">
+            <h3>Sign up</h3>
+            <input id="stuname" type="text" placeholder="Full name">
+            <input id="stumail" type="text" placeholder="Email">
+            <input id="stupass" type="text" placeholder="Password">
+            <input id="formsubmit" type="submit">
+        </form>
+    </div>
+    
+</body>
+</html>
+
+<script>
+    document.querySelector("#signupbody").addEventListener("submit",formsubmit)
+    var stuarr=JSON.parse(localStorage.getItem("details"))||[];
+
+    function formsubmit(){
+        event.preventDefault()
+        var stuobj={
+             studentname:document.querySelector("#stuname").value,
+             studentmail:document.querySelector("#stumail").value,
+             studentpass:document.querySelector("#stuname").value,
+            }
+            stuarr.push(stuobj);
+            console.log(stuarr)
+            localStorage.setItem("details",JSON.stringify(stuarr))
+            
+    }
+    
+</script>
